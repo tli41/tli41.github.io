@@ -11,43 +11,50 @@
             padding: 0;
             background: linear-gradient(135deg, #f0f4f8, #d9e4f5);
             color: #333;
+            display: flex;
         }
-        header {
+        aside {
+            width: 250px;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            position: fixed;
+            height: 100%;
+            overflow-y: auto;
             text-align: center;
-            padding: 50px 20px;
         }
-        header img {
+        aside img {
             width: 150px;
             height: 150px;
             border-radius: 50%;
             object-fit: cover;
             margin-bottom: 20px;
         }
-        header h1 {
+        aside h1 {
+            font-size: 1.8em;
             margin-bottom: 10px;
-            font-size: 3em;
         }
-        header p {
-            font-size: 1.2em;
+        aside p {
             color: #555;
         }
-        nav {
-            text-align: center;
-            margin-top: 20px;
-        }
-        nav a {
-            margin: 0 15px;
+        aside nav a {
+            display: block;
+            margin: 10px 0;
             text-decoration: none;
             color: #007acc;
             font-weight: bold;
         }
-        section {
+        main {
+            margin-left: 270px;
+            padding: 40px;
             max-width: 900px;
-            margin: 40px auto;
-            padding: 20px;
+        }
+        section {
+            margin-bottom: 50px;
             background: white;
+            padding: 20px;
             border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
         footer {
             text-align: center;
@@ -67,7 +74,7 @@
 </head>
 <body>
 
-<header>
+<aside>
     <img src="your-photo.jpg" alt="Your Photo">
     <h1>Your Name</h1>
     <p>Professor | Researcher | Educator</p>
@@ -80,63 +87,65 @@
         <a href="#services">Professional Services</a>
         <a href="#contact">Contact</a>
     </nav>
-</header>
+</aside>
 
-<section id="news">
-    <h2>News</h2>
-    <ul>
-        <li>March 2025: New paper accepted in [Journal Name].</li>
-        <li>February 2025: Invited speaker at [Conference Name].</li>
-    </ul>
-</section>
+<main>
+    <section id="news">
+        <h2>News</h2>
+        <ul>
+            <li>March 2025: New paper accepted in [Journal Name].</li>
+            <li>February 2025: Invited speaker at [Conference Name].</li>
+        </ul>
+    </section>
 
-<section id="teaching">
-    <h2>Teaching</h2>
-    <ul>
-        <li>Course 1: Description and link to syllabus.</li>
-        <li>Course 2: Description and link to syllabus.</li>
-    </ul>
-</section>
+    <section id="teaching">
+        <h2>Teaching</h2>
+        <ul>
+            <li>Course 1: Description and link to syllabus.</li>
+            <li>Course 2: Description and link to syllabus.</li>
+        </ul>
+    </section>
 
-<section id="research">
-    <h2>Research</h2>
-    <p>My research interests include [research area 1], [research area 2], and interdisciplinary applications of [field].</p>
-</section>
+    <section id="research">
+        <h2>Research</h2>
+        <p>My research interests include [research area 1], [research area 2], and interdisciplinary applications of [field].</p>
+    </section>
 
-<section id="publications">
-    <h2>Publications</h2>
-    <ul>
-        <li>Author(s). (Year). Title. <em>Journal Name</em>.</li>
-        <li>Author(s). (Year). Title. <em>Conference Name</em>.</li>
-    </ul>
-</section>
+    <section id="publications">
+        <h2>Publications</h2>
+        <ul>
+            <li>Author(s). (Year). Title. <em>Journal Name</em>.</li>
+            <li>Author(s). (Year). Title. <em>Conference Name</em>.</li>
+        </ul>
+    </section>
 
-<section id="cv">
-    <h2>Curriculum Vitae</h2>
-    <p><a href="your-cv.pdf" target="_blank">Download my CV (PDF)</a></p>
-</section>
+    <section id="cv">
+        <h2>Curriculum Vitae</h2>
+        <p><a href="your-cv.pdf" target="_blank">Download my CV (PDF)</a></p>
+    </section>
 
-<section id="services">
-    <h2>Professional Services</h2>
-    <ul>
-        <li>Reviewer for [Journal/Conference Name]</li>
-        <li>Committee member at [Institution/Organization]</li>
-    </ul>
-</section>
+    <section id="services">
+        <h2>Professional Services</h2>
+        <ul>
+            <li>Reviewer for [Journal/Conference Name]</li>
+            <li>Committee member at [Institution/Organization]</li>
+        </ul>
+    </section>
 
-<section id="contact">
-    <h2>Contact</h2>
-    <p>Connect with me via:</p>
-    <div class="social-links">
-        <a href="https://github.com/yourusername">GitHub</a>
-        <a href="https://linkedin.com/in/yourusername">LinkedIn</a>
-        <a href="mailto:yourname@example.com">Email</a>
-    </div>
-</section>
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Connect with me via:</p>
+        <div class="social-links">
+            <a href="https://github.com/yourusername">GitHub</a>
+            <a href="https://linkedin.com/in/yourusername">LinkedIn</a>
+            <a href="mailto:yourname@example.com">Email</a>
+        </div>
+    </section>
 
-<footer>
-    &copy; 2025 Your Name. All rights reserved.
-</footer>
+    <footer>
+        &copy; 2025 Your Name. All rights reserved.
+    </footer>
+</main>
 
 </body>
 </html>
