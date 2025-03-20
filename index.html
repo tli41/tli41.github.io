@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ting Li - Personal Website</title>
+    <title>Your Name - Personal Website</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -15,6 +15,13 @@
         header {
             text-align: center;
             padding: 50px 20px;
+        }
+        header img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
         }
         header h1 {
             margin-bottom: 10px;
@@ -35,7 +42,7 @@
             font-weight: bold;
         }
         section {
-            max-width: 800px;
+            max-width: 900px;
             margin: 40px auto;
             padding: 20px;
             background: white;
@@ -48,6 +55,9 @@
             color: #777;
             font-size: 0.9em;
         }
+        ul li {
+            margin-bottom: 10px;
+        }
         .social-links a {
             margin: 0 10px;
             color: #007acc;
@@ -58,32 +68,65 @@
 <body>
 
 <header>
+    <img src="your-photo.jpg" alt="Your Photo">
     <h1>Your Name</h1>
-    <p>Software Developer | Tech Enthusiast | Lifelong Learner</p>
+    <p>Professor | Researcher | Educator</p>
     <nav>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
+        <a href="#news">News</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#cv">CV</a>
+        <a href="#services">Professional Services</a>
         <a href="#contact">Contact</a>
     </nav>
 </header>
 
-<section id="about">
-    <h2>About Me</h2>
-    <p>Hello! I'm Your Name, a passionate developer who loves building cool things on the web. Whether it's designing clean UI or writing efficient backend code, I enjoy solving problems and learning new technologies.</p>
+<section id="news">
+    <h2>News</h2>
+    <ul>
+        <li>March 2025: New paper accepted in [Journal Name].</li>
+        <li>February 2025: Invited speaker at [Conference Name].</li>
+    </ul>
 </section>
 
-<section id="projects">
-    <h2>Projects</h2>
+<section id="teaching">
+    <h2>Teaching</h2>
     <ul>
-        <li>Project 1 – <a href="#">View on GitHub</a></li>
-        <li>Project 2 – <a href="#">View on GitHub</a></li>
-        <li>Project 3 – <a href="#">View on GitHub</a></li>
+        <li>Course 1: Description and link to syllabus.</li>
+        <li>Course 2: Description and link to syllabus.</li>
+    </ul>
+</section>
+
+<section id="research">
+    <h2>Research</h2>
+    <p>My research interests include [research area 1], [research area 2], and interdisciplinary applications of [field].</p>
+</section>
+
+<section id="publications">
+    <h2>Publications</h2>
+    <ul>
+        <li>Author(s). (Year). Title. <em>Journal Name</em>.</li>
+        <li>Author(s). (Year). Title. <em>Conference Name</em>.</li>
+    </ul>
+</section>
+
+<section id="cv">
+    <h2>Curriculum Vitae</h2>
+    <p><a href="your-cv.pdf" target="_blank">Download my CV (PDF)</a></p>
+</section>
+
+<section id="services">
+    <h2>Professional Services</h2>
+    <ul>
+        <li>Reviewer for [Journal/Conference Name]</li>
+        <li>Committee member at [Institution/Organization]</li>
     </ul>
 </section>
 
 <section id="contact">
     <h2>Contact</h2>
-    <p>You can reach out to me via:</p>
+    <p>Connect with me via:</p>
     <div class="social-links">
         <a href="https://github.com/yourusername">GitHub</a>
         <a href="https://linkedin.com/in/yourusername">LinkedIn</a>
