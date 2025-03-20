@@ -3,85 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ting Li - Personal Website</title>
+    <title>Your Name - Personal Website</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
             margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, #f0f4f8, #d9e4f5);
-            color: #333;
-            display: flex;
+            background: #f8f9fa;
         }
-        aside {
-            width: 350px;
-            background-color: #fff;
-            padding: 20px;
-            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        .sidebar {
             position: fixed;
+            top: 0;
+            left: 0;
+            width: 260px;
             height: 100%;
-            overflow-y: auto;
+            background-color: #343a40;
+            color: white;
+            padding-top: 20px;
             text-align: center;
         }
-        aside img {
-            width: 150px;
-            height: 150px;
+        .sidebar img {
+            width: 140px;
+            height: 140px;
             border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
-        aside h1 {
-            font-size: 1.8em;
-            margin-bottom: 10px;
+        .sidebar h2 {
+            font-size: 1.5rem;
         }
-        aside p {
-            color: #555;
-        }
-        aside nav a {
+        .sidebar nav a {
             display: block;
-            margin: 10px 0;
+            padding: 10px 0;
+            color: #adb5bd;
             text-decoration: none;
-            color: #007acc;
-            font-weight: bold;
+            transition: color 0.3s;
         }
-        main {
-            margin-left: 400px;
-            padding: 50px;
-            max-width: 800px;
+        .sidebar nav a:hover {
+            color: #ffffff;
+        }
+        .content {
+            margin-left: 270px;
+            padding: 30px;
         }
         section {
-            margin-bottom: 50px;
-            background: white;
+            margin-bottom: 60px;
             padding: 20px;
+            background-color: white;
             border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
         }
         footer {
             text-align: center;
-            padding: 20px;
-            color: #777;
-            font-size: 0.9em;
-        }
-        ul li {
-            margin-bottom: 10px;
-        }
-        .social-links a {
-            margin: 0 10px;
-            color: #007acc;
-            text-decoration: none;
+            margin: 40px 0 20px;
+            color: #6c757d;
         }
     </style>
 </head>
 <body>
 
-<aside>
+<div class="sidebar">
     <img src="your-photo.jpg" alt="Your Photo">
-    <h1>Ting Li</h1>
-    <p>Assistant Professor of Computer Science</p>
-    <p>The Division of Natural Science and Mathematics </p>
-    <p> Oxford College of Emory University </p>
-    <p> Phone: (770)-784-4579  </p>
-    <p> Email: ting.li AT emory DOT edu </p>
+    <h2>Your Name</h2>
+    <p>Professor | Researcher | Educator</p>
     <nav>
         <a href="#news">News</a>
         <a href="#teaching">Teaching</a>
@@ -91,9 +74,9 @@
         <a href="#services">Professional Services</a>
         <a href="#contact">Contact</a>
     </nav>
-</aside>
+</div>
 
-<main>
+<div class="content">
     <section id="news">
         <h2>News</h2>
         <ul>
@@ -110,51 +93,49 @@
     <section id="teaching">
         <h2>Teaching</h2>
         <ul>
-            <li>Course 1: Description and link to syllabus.</li>
-            <li>Course 2: Description and link to syllabus.</li>
+            <li>Course Example 1 — Syllabus and details.</li>
+            <li>Course Example 2 — Syllabus and details.</li>
         </ul>
     </section>
 
     <section id="research">
         <h2>Research</h2>
-        <p>My research interests include [research area 1], [research area 2], and interdisciplinary applications of [field].</p>
+        <p>My research focuses on [primary area], [secondary area], and interdisciplinary topics at the intersection of [related field].</p>
     </section>
 
     <section id="publications">
         <h2>Publications</h2>
         <ul>
-            <li>Author(s). (Year). Title. <em>Journal Name</em>.</li>
-            <li>Author(s). (Year). Title. <em>Conference Name</em>.</li>
+            <li>Doe, J., et al. (2024). Research Title. <em>Journal of Research</em>.</li>
+            <li>Doe, J., et al. (2023). Conference Paper Title. <em>Proceedings of XYZ Conference</em>.</li>
         </ul>
     </section>
 
     <section id="cv">
         <h2>Curriculum Vitae</h2>
-        <p><a href="your-cv.pdf" target="_blank">Download my CV (PDF)</a></p>
+        <p><a href="your-cv.pdf" target="_blank">Download CV (PDF)</a></p>
     </section>
 
     <section id="services">
         <h2>Professional Services</h2>
         <ul>
-            <li>Reviewer for [Journal/Conference Name]</li>
-            <li>Committee member at [Institution/Organization]</li>
+            <li>Program committee member for [Conference Name].</li>
+            <li>Editorial board member for [Journal Name].</li>
+            <li>Reviewer for multiple international conferences and journals.</li>
         </ul>
     </section>
 
     <section id="contact">
         <h2>Contact</h2>
-        <p>Connect with me via:</p>
-        <div class="social-links">
-            <a href="https://github.com/yourusername">GitHub</a>
-            <a href="https://linkedin.com/in/yourusername">LinkedIn</a>
-            <a href="mailto:yourname@example.com">Email</a>
-        </div>
+        <p>Email: <a href="mailto:yourname@example.com">yourname@example.com</a></p>
+        <p>GitHub: <a href="https://github.com/yourusername">yourusername</a></p>
+        <p>LinkedIn: <a href="https://linkedin.com/in/yourusername">yourusername</a></p>
     </section>
 
     <footer>
-        &copy; 2025 Your Name. All rights reserved.
+        &copy; 2025 Your Name — All rights reserved.
     </footer>
-</main>
+</div>
 
 </body>
 </html>
