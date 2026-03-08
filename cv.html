@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ting Li | Curriculum Vitae</title>
+  <meta name="description" content="Curriculum Vitae of Ting Li, Assistant Professor in Computer Science at Oxford College of Emory University.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700&amp;family=Roboto+Slab:wght@400;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <style>
+    :root {
+      --bg: #f4f5f7;
+      --paper: #ffffff;
+      --text: #3d4449;
+      --muted: #7f888f;
+      --accent: #243665;
+      --line: rgba(210, 215, 217, 0.75);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Open Sans", sans-serif;
+      font-size: 11pt;
+      font-weight: 400;
+      line-height: 1.75;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: var(--text);
+      font-family: "Roboto Slab", serif;
+      font-weight: 700;
+      line-height: 1.5;
+      margin: 0 0 0.5em;
+    }
+
+    h2 {
+      font-size: 1.7em;
+    }
+
+    h3 {
+      font-size: 1.1em;
+      margin-top: 0.8em;
+    }
+
+    p {
+      margin: 0 0 1.25em;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: dotted 1px rgba(36, 54, 101, 0.45);
+      transition: color 0.2s ease, border-bottom-color 0.2s ease;
+    }
+
+    a:hover,
+    a:focus-visible {
+      color: var(--accent);
+      border-bottom-color: transparent;
+      outline: none;
+    }
+
+    #wrapper {
+      background: var(--paper);
+      max-width: 1180px;
+      margin: 0 auto;
+      min-height: 100vh;
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.04), 0 12px 34px rgba(61, 68, 73, 0.08);
+    }
+
+    #main {
+      width: 100%;
+    }
+
+    #main > .cv {
+      padding: 0 5em 0.1em 5em;
+    }
+
+    #header {
+      border-bottom: solid 5px var(--accent);
+      padding: 2.3em 0 0.8em;
+      position: relative;
+    }
+
+    #topwrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    #topwrapper > div {
+      flex: 1;
+      min-width: 180px;
+    }
+
+    #topwrapper > div:nth-child(2) {
+      flex: 1.3;
+    }
+
+    .logo {
+      border-bottom: 0;
+      color: inherit;
+      font-family: "Roboto Slab", serif;
+      font-size: 1.45em;
+      white-space: nowrap;
+    }
+
+    .topnav,
+    .icons {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+    }
+
+    .topnav {
+      justify-content: center;
+    }
+
+    .topnav a {
+      border-bottom: 0;
+      color: var(--muted);
+      font-size: 0.84em;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .topnav a:hover,
+    .topnav a:focus-visible {
+      color: var(--accent);
+    }
+
+    .icons {
+      justify-content: flex-end;
+    }
+
+    .icons a {
+      border-bottom: 0;
+      color: var(--muted);
+      font-size: 1.08em;
+      line-height: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.6em;
+      height: 1.6em;
+      border-radius: 999px;
+    }
+
+    .icons a:hover,
+    .icons a:focus-visible {
+      color: var(--accent);
+      background: rgba(36, 54, 101, 0.08);
+    }
+
+    section.cv {
+      padding: 2.15em 0 1.15em;
+    }
+
+    header.main > :last-child {
+      margin-bottom: 1em;
+    }
+
+    hr {
+      border: 0;
+      border-bottom: solid 2px var(--line);
+      margin: 1em 0;
+    }
+
+    hr.major {
+      margin: 1.75em 0;
+    }
+
+    .summary {
+      max-width: 88ch;
+    }
+
+    table {
+      margin: 0 0 1.6em;
+      width: 100%;
+      table-layout: auto;
+      border-collapse: collapse;
+      overflow-wrap: anywhere;
+    }
+
+    table td {
+      padding: 0.34em 0.45em;
+      border-bottom: 1px dotted #dadada;
+      vertical-align: top;
+    }
+
+    .noborder td {
+      border-bottom: none;
+    }
+
+    td.cvdate {
+      width: 14%;
+      padding-right: 0;
+      font-size: 0.82em;
+      color: var(--muted);
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+    }
+
+    td.cvitem {
+      width: 86%;
+      padding-left: 0;
+    }
+
+    .cvitem p,
+    .cvitem ul {
+      margin-top: 0.35em;
+      margin-bottom: 0.35em;
+    }
+
+    ul.compact {
+      margin: 0.1em 0 0;
+      padding-left: 1.05em;
+    }
+
+    ul.compact li + li {
+      margin-top: 0.25em;
+    }
+
+    .list-title {
+      color: var(--text);
+      font-weight: 700;
+      display: inline-block;
+      min-width: 118px;
+    }
+
+    .contact-table {
+      width: 82%;
+      max-width: 760px;
+      margin-bottom: 0.4em;
+    }
+
+    .contact-table td {
+      white-space: nowrap;
+      padding: 0.2em 0.4em;
+    }
+
+    .contact-table i {
+      color: var(--accent);
+      width: 1.1em;
+      text-align: center;
+      margin-right: 0.4em;
+    }
+
+    .last-updated {
+      color: var(--muted);
+      font-size: 0.88em;
+      margin-top: 0.6em;
+    }
+
+    @media screen and (max-width: 1280px) {
+      #main > .cv {
+        padding: 0 4em 0.1em;
+      }
+
+      section.cv {
+        padding: 1.9em 0 0.9em;
+      }
+    }
+
+    @media screen and (max-width: 900px) {
+      #main > .cv {
+        padding: 0 2.3em 0.1em;
+      }
+
+      #topwrapper {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      #topwrapper > div,
+      #topwrapper > div:nth-child(2) {
+        width: 100%;
+        min-width: 0;
+      }
+
+      .topnav {
+        justify-content: flex-start;
+      }
+
+      .icons {
+        justify-content: flex-start;
+      }
+
+      .contact-table {
+        width: 100%;
+      }
+
+      td.cvdate {
+        width: 18%;
+      }
+
+      td.cvitem {
+        width: 82%;
+      }
+    }
+
+    @media screen and (max-width: 700px) {
+      body {
+        font-size: 10.5pt;
+      }
+
+      #main > .cv {
+        padding: 0 1.2em 0.1em;
+      }
+
+      section.cv {
+        padding: 1.5em 0 0.65em;
+      }
+
+      table,
+      tbody,
+      tr,
+      td {
+        display: block;
+        width: 100%;
+      }
+
+      table td {
+        border-bottom: 0;
+        padding: 0.15em 0;
+      }
+
+      td.cvdate {
+        margin-top: 0.55em;
+        font-size: 0.79em;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+
+      td.cvitem {
+        margin-bottom: 0.6em;
+      }
+
+      .topnav {
+        gap: 0.7rem;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      #wrapper {
+        max-width: none;
+        box-shadow: none;
+      }
+
+      #main > .cv {
+        padding: 0;
+      }
+
+      #header {
+        padding-top: 0;
+      }
+
+      .topnav,
+      .icons {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="wrapper">
+    <div id="main">
+      <div class="cv">
+        <header id="header">
+          <div id="topwrapper">
+            <div><a href="index.html" class="logo"><strong>Ting</strong> Li</a></div>
+            <div>
+              <ul class="topnav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#news">News</a></li>
+                <li><a href="index.html#publications">Publications</a></li>
+                <li><a href="cv.html">CV</a></li>
+                <li><a href="index.html#teaching">Teaching</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+              </ul>
+            </div>
+            <div>
+              <ul class="icons">
+                <li><a href="mailto:ting.li@emory.edu" aria-label="Email"><i class="fa-solid fa-envelope"></i></a></li>
+                <li><a href="https://scholar.google.com/citations?user=Ak6rAqEAAAAJ&amp;hl=en" target="_blank" rel="noreferrer" aria-label="Google Scholar"><i class="fa-solid fa-graduation-cap"></i></a></li>
+                <li><a href="https://github.com/tli41" target="_blank" rel="noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a></li>
+                <li><a href="https://www.linkedin.com/in/tingliuncc/" target="_blank" rel="noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                <li><a href="https://tli41.github.io" aria-label="Website"><i class="fa-solid fa-globe"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </header>
+
+        <section class="cv">
+          <header class="main">
+            <h2>Ting Li, Ph.D.</h2>
+          </header>
+
+          <p class="summary">
+            I am an Assistant Professor in Computer Science at Oxford College of Emory University. My research focuses on mobile crowd sensing, edge computing, privacy-preserving systems, indoor localization, and bike-sharing analytics. I received my Ph.D. in Computer Science from UNC Charlotte (2019), advised by <a href="https://cis.temple.edu/~yu/">Dr. Yu Wang</a>.
+          </p>
+
+          <table class="noborder contact-table">
+            <tr>
+              <td><i class="fa-solid fa-envelope"></i><a href="mailto:ting.li@emory.edu">ting.li@emory.edu</a></td>
+              <td><i class="fa-solid fa-globe"></i><a href="https://tli41.github.io">tli41.github.io</a></td>
+            </tr>
+            <tr>
+              <td><i class="fa-solid fa-graduation-cap"></i><a href="https://scholar.google.com/citations?user=Ak6rAqEAAAAJ&amp;hl=en">Google Scholar</a></td>
+              <td><i class="fa-brands fa-linkedin"></i><a href="https://www.linkedin.com/in/tingliuncc/">LinkedIn</a></td>
+            </tr>
+            <tr>
+              <td><i class="fa-brands fa-github"></i><a href="https://github.com/tli41">GitHub</a></td>
+              <td><i class="fa-solid fa-file-pdf"></i><a href="TING_CV_2025_Aug_Updated.pdf" target="_blank" rel="noreferrer">PDF of CV</a></td>
+            </tr>
+          </table>
+
+          <p class="last-updated">Last updated: March 2026.</p>
+          <hr class="major">
+        </section>
+
+        <section class="cv">
+          <h2>Appointments</h2>
+          <table class="noborder">
+            <tr>
+              <td class="cvdate">2021-present</td>
+              <td class="cvitem">
+                <strong>Assistant Professor</strong><br>
+                Computer Science, Oxford College of Emory University
+              </td>
+            </tr>
+          </table>
+          <hr class="major">
+        </section>
+
+        <section class="cv">
+          <h2>Education</h2>
+          <table class="noborder">
+            <tr>
+              <td class="cvdate">2019</td>
+              <td class="cvitem">
+                <strong>Ph.D. in Computer Science</strong><br>
+                UNC Charlotte<br>
+                Advisor: <a href="https://cis.temple.edu/~yu/">Dr. Yu Wang</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="cvdate">2012</td>
+              <td class="cvitem">
+                <strong>B.Eng. in Electrical Engineering</strong><br>
+                Xidian University, China
+              </td>
+            </tr>
+          </table>
+          <hr class="major">
+        </section>
+
+        <section class="cv">
+          <h2>Research Interests</h2>
+          <p>Mobile Crowd Sensing; Edge Computing; Privacy-Preserving Systems; Indoor Localization; Bike-Sharing Systems.</p>
+          <hr class="major">
+        </section>
+
+        <section class="cv">
+          <h2>Publications</h2>
+
+          <h3>Journal Articles (Selected)</h3>
+          <table>
+            <tr>
+              <td class="cvdate">2022</td>
+              <td class="cvitem">Youqi Li, Fan Li, Liehuang Zhu, Huijie Chen, Ting Li, and Yu Wang, "Fair Incentive Mechanism with Imperfect Quality in Privacy Preserving Crowdsensing," <em>IEEE Internet of Things Journal</em>.</td>
+            </tr>
+            <tr>
+              <td class="cvdate">2021</td>
+              <td class="cvitem">Ting Li, Zhijin Qiu, Lijuan Cao, Dazhao Cheng, Weichao Wang, Xinghua Shi, and Yu Wang, "Privacy-Preserving Participant Grouping for Mobile Social Sensing over Edge Clouds," <em>IEEE Transactions on Network Science and Engineering</em>.</td>
+            </tr>
+            <tr>
+              <td class="cvdate">2020</td>
+              <td class="cvitem">Ting Li, Taeho Jung, Zhijin Qiu, Hanshang Li, Lijuan Cao, and Yu Wang, "Scalable Privacy-Preserving Participant Selection for Mobile Crowdsensing Systems," <em>IEEE Transactions on Network Science and Engineering</em>.</td>
+            </tr>
+            <tr>
+              <td class="cvdate">2019</td>
+              <td class="cvitem">Hanshang Li, Ting Li, Weichao Wang, and Yu Wang, "Dynamic Participant Selection for Large-Scale Mobile Crowd Sensing," <em>IEEE Transactions on Mobile Computing</em>.</td>
+            </tr>
+          </table>
+
+          <h3>Conference Papers (Selected)</h3>
+          <table>
+            <tr>
+              <td class="cvdate">2025</td>
+              <td class="cvitem">Victor Li*, Carson Lam*, Ting Li, "Gumbel-Based Active Sparse Mobile Crowd Sensing with Time Series Transformer," <em>IPCCC 2025</em>.</td>
+            </tr>
+            <tr>
+              <td class="cvdate">2025</td>
+              <td class="cvitem">Ting Li, Dan Han, A B M Mohaimenur Rahman, "Matching or Not: Stochastic Perfect Matching of Task Assignment in Mobile Crowd Sensing," <em>BigCom 2025</em>.</td>
+            </tr>
+            <tr>
+              <td class="cvdate">2024</td>
+              <td class="cvitem">Helen Jin*, Ting Li, "Participation Selection in Mobile Crowd Sensing with Diversity Ensures," <em>ICNC 2024</em>.</td>
+            </tr>
+            <tr>
+              <td class="cvdate">2018</td>
+              <td class="cvitem">Ting Li, Zhijin Qiu, Lijuan Cao, Zhongwen Guo, Fan Li, and Yu Wang, "Privacy-Preserving Participant Grouping in Mobile Crowdsensing over Hierarchical Edge Clouds," <em>IPCCC 2018</em>.</td>
+            </tr>
+            <tr>
+              <td class="cvdate">2017</td>
+              <td class="cvitem">Ting Li, Taeho Jung, Hanshang Li, Lijuan Cao, Weichao Wang, Xiang-Yang Li, and Yu Wang, "Scalable Privacy-Preserving Participant Selection in Mobile Crowd Sensing," <em>PerCom 2017</em>.</td>
+            </tr>
+          </table>
+
+          <p><a href="TING_CV_2025_Aug_Updated.pdf" target="_blank" rel="noreferrer">Complete publication list in PDF CV</a>.</p>
+          <hr class="major">
+        </section>
+
+        <section class="cv">
+          <h2>Teaching</h2>
+          <table class="noborder">
+            <tr>
+              <td class="cvdate">Courses</td>
+              <td class="cvitem">
+                <ul class="compact">
+                  <li>CS 170Q Introduction to Computer Science I - <a href="CS%20170%20syllabus-23Spring.pdf" target="_blank" rel="noreferrer">Sample syllabus</a></li>
+                  <li>CS 171 Introduction to Computer Science II - <a href="CS%20171%20Syllabus%20Spring%202025.pdf" target="_blank" rel="noreferrer">Sample syllabus</a></li>
+                  <li>CS 253 Data Structure and Algorithms - <a href="Syllabus%20Spring%202025.pdf" target="_blank" rel="noreferrer">Sample syllabus</a></li>
+                  <li>DSC 101Q Beauty of Algorithms</li>
+                  <li>MLP 101 Milestone Project</li>
+                  <li>CS 297RE Directed Study</li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+          <hr class="major">
+        </section>
+
+        <section class="cv">
+          <h2>Professional Service</h2>
+          <table class="noborder">
+            <tr>
+              <td class="cvdate">Leadership</td>
+              <td class="cvitem">General Chair, 21st EAI International Conference on Heterogeneous Networking for Quality, Reliability, Security and Robustness (2025); Poster Chair, IPCCC 2025.</td>
+            </tr>
+            <tr>
+              <td class="cvdate">TPC / PC</td>
+              <td class="cvitem">IEEE MASS; IEEE SoutheastCon; IEEE IPCCC; IEEE ICCCN; BigCom; The Tech for Women Track at Grace Hopper Conference.</td>
+            </tr>
+            <tr>
+              <td class="cvdate">Journal Reviewing</td>
+              <td class="cvitem">ACM Transactions on Sensor Networks; Sensors; IEEE Transactions on Mobile Computing; IEEE Transactions on Communications; IEEE Internet of Things Journal; IEEE Transactions on Vehicular Technology; IEEE Transactions on Network Science and Engineering; and related venues.</td>
+            </tr>
+            <tr>
+              <td class="cvdate">Other</td>
+              <td class="cvitem">Session Chair, IPCCC 2021; Judge, Undergraduate Research (CUR) Award at SIGCSE 2022; Guest Editor for MDPI special issues.</td>
+            </tr>
+          </table>
+        </section>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
