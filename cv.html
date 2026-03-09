@@ -651,6 +651,215 @@
         </section>
 
         
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Courses Taught — Ting Li</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #f7f6f2;
+      color: #1a1a2e;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1.5rem;
+      gap: 3rem;
+    }
+
+    .courses-section {
+      width: 100%;
+      max-width: 900px;
+    }
+
+    /* ── Section Title ───────────────────────────────────── */
+    .section-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.05rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #4a7baf;
+      margin-bottom: 1.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, #4a7baf55, transparent);
+    }
+
+    /* ── Course Cards (top summary) ─────────────────────── */
+    .course-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 0.85rem;
+      margin-bottom: 2.2rem;
+    }
+
+    .course-card {
+      background: white;
+      border-radius: 10px;
+      padding: 1rem 1.2rem;
+      border-left: 3px solid #4a7baf;
+      box-shadow: 0 1px 4px rgba(27,58,107,0.07);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .course-card:hover {
+      box-shadow: 0 4px 14px rgba(27,58,107,0.13);
+      transform: translateY(-2px);
+    }
+
+    .course-code {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: #4a7baf;
+      text-transform: uppercase;
+      margin-bottom: 0.25rem;
+    }
+    .course-name {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #1b3a6b;
+      margin-bottom: 0.4rem;
+      line-height: 1.35;
+    }
+    .course-semesters {
+      font-size: 0.78rem;
+      color: #666;
+      line-height: 1.5;
+    }
+
+    /* ── Semester Grid Table ─────────────────────────────── */
+    .table-label {
+      font-size: 0.78rem;
+      color: #888;
+      font-style: italic;
+      margin-bottom: 0.7rem;
+    }
+
+    .scroll-wrapper {
+      overflow-x: auto;
+      border-radius: 10px;
+      box-shadow: 0 1px 4px rgba(27,58,107,0.08);
+    }
+
+    table.semester-grid {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      font-size: 0.82rem;
+      min-width: 620px;
+    }
+
+    /* Header row */
+    .semester-grid thead tr {
+      background: #1b3a6b;
+      color: white;
+    }
+    .semester-grid thead th {
+      padding: 0.65rem 0.6rem;
+      text-align: center;
+      font-weight: 600;
+      font-size: 0.72rem;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+    }
+    .semester-grid thead th:first-child {
+      text-align: left;
+      padding-left: 1rem;
+      min-width: 110px;
+    }
+
+    /* Sub-header (course codes) */
+    .semester-grid thead tr.subhead th {
+      background: #4a7baf;
+      font-size: 0.68rem;
+      padding: 0.4rem 0.6rem;
+      color: #d6e4f0;
+    }
+
+    /* Body rows */
+    .semester-grid tbody tr {
+      border-bottom: 1px solid #eef2f7;
+      transition: background 0.15s;
+    }
+    .semester-grid tbody tr:hover { background: #eef3f9; }
+    .semester-grid tbody tr:nth-child(even) { background: #f7fafd; }
+    .semester-grid tbody tr:nth-child(even):hover { background: #eef3f9; }
+
+    /* Summer rows — lighter tint */
+    .semester-grid tbody tr.summer-row td:first-child {
+      color: #4a7baf;
+      font-style: italic;
+    }
+
+    .semester-grid tbody td {
+      padding: 0.5rem 0.6rem;
+      text-align: center;
+      color: #444;
+    }
+    .semester-grid tbody td:first-child {
+      text-align: left;
+      padding-left: 1rem;
+      font-weight: 500;
+      color: #1b3a6b;
+      white-space: nowrap;
+    }
+
+    /* Credit total column */
+    .semester-grid td.credit-total,
+    .semester-grid th.credit-total {
+      font-weight: 700;
+      color: #1b3a6b !important;
+      background: #eef3f9;
+      border-left: 2px solid #c8d8ea;
+    }
+    .semester-grid thead th.credit-total {
+      color: #a8cadf !important;
+    }
+
+    /* Cell value — filled circle for sections */
+    .cell-val {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      background: #1b3a6b;
+      color: white;
+      border-radius: 50%;
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+    .cell-val.blue { background: #4a7baf; }
+    .cell-val.light { background: #c8d8ea; color: #1b3a6b; }
+
+    /* Empty cell dash */
+    .cell-empty { color: #ccc; font-size: 0.75rem; }
+
+    /* Footer note */
+    .table-note {
+      font-size: 0.75rem;
+      color: #888;
+      margin-top: 0.7rem;
+      line-height: 1.6;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ COURSES TAUGHT SECTION — paste into your site ══ -->
 <section class="courses-section">
 
   <h2 class="section-title">Courses Taught at Oxford College</h2>
@@ -676,11 +885,6 @@
       <div class="course-code">DSC 101Q</div>
       <div class="course-name">Beauty of Algorithms</div>
       <div class="course-semesters">F'20, F'23, F'25</div>
-    </div>
-    <div class="course-card">
-      <div class="course-code">MLP 101</div>
-      <div class="course-name">Milestone Projects</div>
-      <div class="course-semesters">F'21, S'22</div>
     </div>
     <div class="course-card">
       <div class="course-code">CS 297RE</div>
@@ -845,6 +1049,12 @@
     Numbers represent sections taught. CS 297RE values indicate distinct student research topics supervised.
     Summer sessions shown in italics. Teaching load: 3–3.
   </p>
+
+</section>
+<!-- ══ END COURSES TAUGHT SECTION ══ -->
+
+</body>
+
 
   
         <section class="cv">
