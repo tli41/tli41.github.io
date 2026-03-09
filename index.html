@@ -7,32 +7,28 @@
   <meta name="description" content="Ting Li, Assistant Professor in Computer Science at Oxford College of Emory University.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&amp;family=Manrope:wght@400;500;700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #f5f3ed;
-      --bg-2: #e6ecee;
+      --bg: #f0f4f8;
+      --bg-2: #dce8f2;
       --surface: rgba(255, 255, 255, 0.82);
       --surface-strong: #ffffff;
-      --text: #102632;
-      --muted: #4b636f;
-      --accent: #ba4f2d;
-      --accent-soft: #f6d8ce;
-      --line: rgba(16, 38, 50, 0.15);
-      --shadow: 0 22px 40px rgba(16, 38, 50, 0.12);
+      --text: #0f2a45;
+      --muted: #3d5a73;
+      --accent: #1b5fa8;
+      --accent-soft: #cfe0f5;
+      --line: rgba(15, 42, 69, 0.15);
+      --shadow: 0 22px 40px rgba(15, 42, 69, 0.12);
       --radius-lg: 22px;
       --radius-md: 14px;
       --max-width: 1240px;
       --nav-height: 58px;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    *, *::before, *::after { box-sizing: border-box; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -40,187 +36,127 @@
       font-family: "Manrope", sans-serif;
       line-height: 1.65;
       background:
-        radial-gradient(circle at 85% 15%, rgba(186, 79, 45, 0.2), transparent 33%),
-        radial-gradient(circle at 10% 90%, rgba(32, 119, 145, 0.18), transparent 38%),
+        radial-gradient(circle at 85% 15%, rgba(27, 95, 168, 0.18), transparent 33%),
+        radial-gradient(circle at 10% 90%, rgba(15, 80, 160, 0.14), transparent 38%),
         linear-gradient(135deg, var(--bg), var(--bg-2));
     }
 
-    a {
-      color: var(--accent);
-    }
+    a { color: var(--accent); }
 
     .skip-link {
-      position: absolute;
-      left: -9999px;
-      top: 0;
-      background: var(--text);
-      color: #fff;
+      position: absolute; left: -9999px; top: 0;
+      background: var(--text); color: #fff;
       padding: 0.5rem 0.75rem;
       border-radius: 0 0 8px 8px;
     }
+    .skip-link:focus { left: 1rem; top: 0; z-index: 99; }
 
-    .skip-link:focus {
-      left: 1rem;
-      top: 0;
-      z-index: 99;
-    }
-
+    /* ── Mobile nav ──────────────────────────────────────── */
     .mobile-nav {
-      position: sticky;
-      top: 0;
-      z-index: 30;
-      display: none;
-      align-items: center;
+      position: sticky; top: 0; z-index: 30;
+      display: none; align-items: center;
       height: var(--nav-height);
-      overflow-x: auto;
-      gap: 0.8rem;
-      padding: 0 0.9rem;
+      overflow-x: auto; gap: 0.8rem; padding: 0 0.9rem;
       backdrop-filter: blur(10px);
       background: rgba(245, 243, 237, 0.88);
       border-bottom: 1px solid var(--line);
       white-space: nowrap;
     }
-
     .mobile-nav a {
-      text-decoration: none;
-      color: var(--muted);
-      font-size: 0.86rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
+      text-decoration: none; color: var(--muted);
+      font-size: 0.86rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.06em;
     }
 
+    /* ── Page layout ─────────────────────────────────────── */
     .page {
-      max-width: var(--max-width);
-      margin: 0 auto;
+      max-width: var(--max-width); margin: 0 auto;
       padding: 2rem 1.1rem 2.5rem;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.2rem;
+      display: grid; grid-template-columns: 1fr; gap: 1.2rem;
     }
 
+    /* ── Sidebar ─────────────────────────────────────────── */
     .sidebar {
       background: var(--surface);
       border: 1px solid var(--line);
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow);
       padding: 1.35rem;
-      position: relative;
-      overflow: hidden;
+      position: relative; overflow: hidden;
       animation: rise 650ms ease-out both;
     }
-
     .sidebar::after {
-      content: "";
-      position: absolute;
-      width: 220px;
-      height: 220px;
-      right: -70px;
-      top: -70px;
+      content: ""; position: absolute;
+      width: 220px; height: 220px; right: -70px; top: -70px;
       border-radius: 50%;
       background: radial-gradient(circle, var(--accent-soft), transparent 70%);
       pointer-events: none;
     }
 
     .profile-photo {
-      width: min(260px, 100%);
-      aspect-ratio: 1;
-      border-radius: 50%;
-      object-fit: cover;
+      width: min(260px, 100%); aspect-ratio: 1;
+      border-radius: 50%; object-fit: cover;
       border: 6px solid #fff;
       box-shadow: 0 14px 26px rgba(16, 38, 50, 0.2);
-      display: block;
-      margin: 0 auto 1.1rem;
-      position: relative;
-      z-index: 1;
+      display: block; margin: 0 auto 1.1rem;
+      position: relative; z-index: 1;
     }
 
     h1 {
       margin: 0;
       font-family: "Fraunces", serif;
       font-size: clamp(2rem, 4vw, 2.8rem);
-      line-height: 1.1;
-      letter-spacing: -0.01em;
-      text-align: center;
-      position: relative;
-      z-index: 1;
+      line-height: 1.1; letter-spacing: -0.01em;
+      text-align: center; position: relative; z-index: 1;
     }
 
     .title {
-      text-align: center;
-      margin: 0.7rem auto 0;
-      color: var(--muted);
-      max-width: 34ch;
-      font-size: 1rem;
-      position: relative;
-      z-index: 1;
+      text-align: center; margin: 0.7rem auto 0;
+      color: var(--muted); max-width: 34ch;
+      font-size: 1rem; position: relative; z-index: 1;
     }
 
     .quick-links {
       margin-top: 1rem;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.55rem;
-      position: relative;
-      z-index: 1;
+      display: flex; flex-wrap: wrap;
+      justify-content: center; gap: 0.55rem;
+      position: relative; z-index: 1;
     }
 
     .chip {
       text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+      display: inline-flex; align-items: center; justify-content: center;
       padding: 0.45rem 0.8rem;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--text);
-      background: rgba(255, 255, 255, 0.8);
+      border: 1px solid var(--line); border-radius: 999px;
+      font-size: 0.85rem; font-weight: 700;
+      color: var(--text); background: rgba(255,255,255,0.8);
       transition: transform 0.16s ease, border-color 0.2s ease, background 0.2s ease;
     }
-
-    .chip:hover,
-    .chip:focus-visible {
+    .chip:hover, .chip:focus-visible {
       transform: translateY(-2px);
       border-color: rgba(16, 38, 50, 0.35);
-      background: #fff;
-      outline: none;
+      background: #fff; outline: none;
     }
 
     .desktop-nav {
       margin-top: 1.2rem;
-      border-top: 1px solid var(--line);
-      padding-top: 1rem;
-      display: grid;
-      gap: 0.4rem;
-      position: relative;
-      z-index: 1;
+      border-top: 1px solid var(--line); padding-top: 1rem;
+      display: grid; gap: 0.4rem;
+      position: relative; z-index: 1;
     }
-
     .desktop-nav a {
-      text-decoration: none;
-      color: var(--muted);
-      font-size: 0.92rem;
-      font-weight: 600;
+      text-decoration: none; color: var(--muted);
+      font-size: 0.92rem; font-weight: 600;
       padding: 0.24rem 0;
       border-bottom: 1px solid transparent;
       width: fit-content;
     }
-
-    .desktop-nav a:hover,
-    .desktop-nav a:focus-visible {
-      color: var(--accent);
-      border-bottom-color: var(--accent);
-      outline: none;
+    .desktop-nav a:hover, .desktop-nav a:focus-visible {
+      color: var(--accent); border-bottom-color: var(--accent); outline: none;
     }
 
-    main {
-      display: grid;
-      gap: 1rem;
-      animation: rise 700ms ease-out both;
-    }
+    /* ── Main content ────────────────────────────────────── */
+    main { display: grid; gap: 1rem; animation: rise 700ms ease-out both; }
 
     .card {
       background: var(--surface);
@@ -229,11 +165,6 @@
       box-shadow: var(--shadow);
       padding: 1.15rem 1rem;
     }
-
-    .card + .card {
-      animation: rise 700ms ease-out both;
-    }
-
     .card:nth-of-type(2) { animation-delay: 60ms; }
     .card:nth-of-type(3) { animation-delay: 120ms; }
     .card:nth-of-type(4) { animation-delay: 180ms; }
@@ -245,201 +176,197 @@
     h2 {
       margin: 0 0 0.65rem;
       font-family: "Fraunces", serif;
-      font-size: clamp(1.4rem, 2.4vw, 1.9rem);
-      line-height: 1.2;
+      font-size: clamp(1.4rem, 2.4vw, 1.9rem); line-height: 1.2;
     }
+    h3 { margin: 1rem 0 0.4rem; font-size: 1.05rem; color: var(--text); }
 
-    h3 {
-      margin: 1rem 0 0.4rem;
-      font-size: 1.05rem;
-      color: var(--text);
-    }
-
-    p {
-      margin: 0.55rem 0;
-      color: var(--muted);
-    }
-
-    ul,
-    ol {
-      margin: 0.5rem 0 0;
-      padding-left: 1.18rem;
-      color: var(--muted);
-    }
-
-    li + li {
-      margin-top: 0.5rem;
-    }
-
-    .compact-list li + li {
-      margin-top: 0.28rem;
-    }
+    p { margin: 0.55rem 0; color: var(--muted); }
+    ul, ol { margin: 0.5rem 0 0; padding-left: 1.18rem; color: var(--muted); }
+    li + li { margin-top: 0.5rem; }
+    .compact-list li + li { margin-top: 0.28rem; }
 
     .news-list {
-      list-style: none;
-      padding: 0;
-      margin: 0.4rem 0 0;
-      display: grid;
-      gap: 0.6rem;
+      list-style: none; padding: 0; margin: 0.4rem 0 0;
+      display: grid; gap: 0.6rem;
     }
-
     .news-list li {
       border-radius: var(--radius-md);
       border: 1px solid var(--line);
       background: var(--surface-strong);
-      padding: 0.62rem 0.78rem;
-      margin: 0;
+      padding: 0.62rem 0.78rem; margin: 0;
     }
-
-    .news-date {
-      font-weight: 700;
-      color: var(--text);
-    }
-
-    .teaching-list {
-      list-style: none;
-      padding: 0;
-      margin: 0.5rem 0 0;
-      display: grid;
-      gap: 0.6rem;
-    }
-
-    .teaching-list li {
-      margin: 0;
-      border: 1px solid var(--line);
-      border-radius: var(--radius-md);
-      padding: 0.6rem 0.75rem;
-      background: var(--surface-strong);
-    }
+    .news-date { font-weight: 700; color: var(--text); }
 
     .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.45rem;
-      margin-top: 0.7rem;
+      display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 0.7rem;
     }
-
     .tag {
-      display: inline-flex;
-      align-items: center;
-      padding: 0.35rem 0.65rem;
-      border-radius: 999px;
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: #17313c;
-      background: #d8e9ef;
+      display: inline-flex; align-items: center;
+      padding: 0.35rem 0.65rem; border-radius: 999px;
+      font-size: 0.8rem; font-weight: 700;
+      color: #0f2a45; background: #cfe0f5;
     }
 
-    details {
-      border: 1px solid var(--line);
-      border-radius: var(--radius-md);
-      background: var(--surface-strong);
-      padding: 0.55rem 0.65rem;
-      margin-top: 0.7rem;
+    /* ── Publication tables ───────────────────────────────── */
+    table { width: 100%; border-collapse: collapse; margin-top: 0.4rem; }
+    td.cvdate {
+      white-space: nowrap; font-weight: 700;
+      color: var(--accent); vertical-align: top;
+      padding: 0.38rem 0.9rem 0.38rem 0;
+      font-size: 0.88rem; width: 52px;
     }
-
-    summary {
-      cursor: pointer;
-      font-weight: 700;
-      color: var(--text);
+    td.cvitem {
+      color: var(--muted); padding: 0.38rem 0;
+      font-size: 0.9rem; line-height: 1.55;
+      border-bottom: 1px solid var(--line);
     }
+    tr:last-child td.cvitem { border-bottom: none; }
+    table.noborder td { border-bottom: none; }
 
-    details[open] {
-      padding-bottom: 0.75rem;
-    }
-
-    .publication-list {
-      margin-top: 0.55rem;
-    }
-
-    .publication-list li {
-      margin-top: 0.45rem;
-    }
-
-    .contact-grid {
-      display: grid;
-      gap: 0.5rem;
-      margin-top: 0.4rem;
-    }
-
+    /* ── Contact ─────────────────────────────────────────── */
+    .contact-grid { display: grid; gap: 0.5rem; margin-top: 0.4rem; }
     .contact-item {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.45rem;
-      align-items: baseline;
-      color: var(--muted);
+      display: flex; flex-wrap: wrap; gap: 0.45rem;
+      align-items: baseline; color: var(--muted);
+    }
+    .contact-item strong { color: var(--text); font-size: 0.92rem; min-width: 66px; }
+
+    /* ══════════════════════════════════════════════════════
+       TEACHING SECTION — styled to match site palette
+    ══════════════════════════════════════════════════════ */
+
+    /* Course summary cards */
+    .course-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 0.75rem;
+      margin: 0.9rem 0 1.4rem;
+    }
+    .course-card {
+      background: var(--surface-strong);
+      border: 1px solid var(--line);
+      border-left: 3px solid var(--accent);
+      border-radius: var(--radius-md);
+      padding: 0.85rem 1rem;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .course-card:hover {
+      box-shadow: 0 6px 18px rgba(27,95,168,0.15);
+      transform: translateY(-2px);
+    }
+    .course-code {
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 0.22rem;
+    }
+    .course-name {
+      font-size: 0.88rem; font-weight: 700;
+      color: var(--text); margin-bottom: 0.32rem; line-height: 1.3;
+    }
+    .course-semesters { font-size: 0.76rem; color: var(--muted); line-height: 1.5; }
+
+    /* Semester grid */
+    .table-caption {
+      font-size: 0.76rem; color: var(--muted);
+      font-style: italic; margin-bottom: 0.6rem;
+      line-height: 1.5;
+    }
+    .scroll-wrapper {
+      overflow-x: auto;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--line);
+    }
+    table.semester-grid {
+      width: 100%; border-collapse: collapse;
+      background: var(--surface-strong);
+      font-size: 0.81rem; min-width: 580px;
+      /* Reset any inherited table styles */
+      margin-top: 0;
+    }
+    .semester-grid thead tr { background: var(--text); }
+    .semester-grid thead th {
+      padding: 0.6rem 0.55rem;
+      text-align: center; font-weight: 700;
+      font-size: 0.7rem; letter-spacing: 0.06em;
+      white-space: nowrap; color: rgba(255,255,255,0.9);
+    }
+    .semester-grid thead th:first-child {
+      text-align: left; padding-left: 1rem; min-width: 108px;
+    }
+    .semester-grid tbody tr { border-bottom: 1px solid var(--line); transition: background 0.15s; }
+    .semester-grid tbody tr:hover { background: var(--accent-soft); }
+    .semester-grid tbody tr:nth-child(even) { background: var(--bg); }
+    .semester-grid tbody tr:nth-child(even):hover { background: var(--accent-soft); }
+    .semester-grid tbody tr.summer-row td:first-child {
+      color: var(--muted); font-style: italic;
+    }
+    .semester-grid tbody td {
+      padding: 0.46rem 0.55rem;
+      text-align: center; color: var(--muted);
+      /* Reset cvitem/cvdate styles */
+      width: auto; font-weight: 400; vertical-align: middle;
+      border-bottom: none; font-size: 0.81rem;
+    }
+    .semester-grid tbody td:first-child {
+      text-align: left; padding-left: 1rem;
+      font-weight: 600; color: var(--text);
+      white-space: nowrap;
+    }
+    .semester-grid td.credit-col,
+    .semester-grid th.credit-col {
+      font-weight: 700; color: var(--text) !important;
+      background: var(--accent-soft);
+      border-left: 2px solid rgba(27,95,168,0.25);
+    }
+    .semester-grid thead th.credit-col { color: rgba(27,95,168,0.9) !important; }
+
+    /* Numeric badges inside cells */
+    .cv {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 22px; height: 22px; border-radius: 50%;
+      font-size: 0.7rem; font-weight: 700;
+    }
+    .cv-dark  { background: var(--text); color: #fff; }
+    .cv-mid   { background: var(--muted); color: #fff; }
+    .cv-light { background: var(--accent-soft); color: var(--accent); border: 1px solid rgba(186,79,45,0.3); }
+    .cv-empty { color: rgba(16,38,50,0.2); font-size: 0.72rem; }
+
+    .table-note {
+      font-size: 0.73rem; color: var(--muted);
+      margin-top: 0.6rem; line-height: 1.6; font-style: italic;
     }
 
-    .contact-item strong {
-      color: var(--text);
-      font-size: 0.92rem;
-      min-width: 66px;
+    /* ── Animations & responsive ─────────────────────────── */
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
     footer {
-      color: var(--muted);
-      text-align: center;
-      font-size: 0.88rem;
-      padding-top: 0.4rem;
-    }
-
-    @keyframes rise {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      color: var(--muted); text-align: center;
+      font-size: 0.88rem; padding-top: 0.4rem;
     }
 
     @media (min-width: 980px) {
       .page {
         grid-template-columns: 330px minmax(0, 1fr);
-        gap: 1.25rem;
-        padding: 2.1rem 1.5rem 3rem;
+        gap: 1.25rem; padding: 2.1rem 1.5rem 3rem;
       }
-
-      .sidebar {
-        position: sticky;
-        top: 1.1rem;
-        align-self: start;
-      }
-
-      .card {
-        padding: 1.3rem 1.25rem;
-      }
+      .sidebar { position: sticky; top: 1.1rem; align-self: start; }
+      .card { padding: 1.3rem 1.25rem; }
     }
 
     @media (max-width: 979px) {
-      .mobile-nav {
-        display: flex;
-      }
-
-      .desktop-nav {
-        display: none;
-      }
-
-      .page {
-        padding-top: 1rem;
-      }
-
-      .sidebar {
-        scroll-margin-top: calc(var(--nav-height) + 0.7rem);
-      }
-
-      .card {
+      .mobile-nav { display: flex; }
+      .desktop-nav { display: none; }
+      .page { padding-top: 1rem; }
+      .sidebar, .card {
         scroll-margin-top: calc(var(--nav-height) + 0.7rem);
       }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      * {
-        animation: none !important;
-        transition: none !important;
-        scroll-behavior: auto;
-      }
+      * { animation: none !important; transition: none !important; scroll-behavior: auto; }
     }
   </style>
 </head>
@@ -466,7 +393,7 @@
       <div class="quick-links">
         <a class="chip" href="cv.html">CV</a>
         <a class="chip" href="TING_CV_2026_Feb_Teaching.pdf" target="_blank" rel="noreferrer">CV (PDF)</a>
-        <a class="chip" href="https://scholar.google.com/citations?user=Ak6rAqEAAAAJ&amp;hl=en" target="_blank" rel="noreferrer">Google Scholar</a>
+        <a class="chip" href="https://scholar.google.com/citations?user=Ak6rAqEAAAAJ&hl=en" target="_blank" rel="noreferrer">Google Scholar</a>
         <a class="chip" href="https://github.com/tli41" target="_blank" rel="noreferrer">GitHub</a>
         <a class="chip" href="https://www.linkedin.com/in/tingliuncc/" target="_blank" rel="noreferrer">LinkedIn</a>
       </div>
@@ -484,33 +411,28 @@
     </aside>
 
     <main id="main-content">
+
+      <!-- ── About ─────────────────────────────────────── -->
       <section id="about" class="card">
         <h2>About</h2>
         <p>I am an Assistant Professor in Computer Science at Oxford College of Emory University. My research focuses on mobile crowd sensing, edge computing, privacy, indoor localization, and bike sharing.</p>
         <p>I received my Ph.D. from UNC Charlotte in 2019 under the supervision of <a href="https://cis.temple.edu/~yu/" target="_blank" rel="noreferrer">Dr. Yu Wang</a>. Before that, I earned my B.Eng. in Electrical Engineering from Xidian University in June 2012 and worked as a counselor at Xidian University for two years.</p>
       </section>
 
-   
-
+      <!-- ── News ──────────────────────────────────────── -->
       <section id="news" class="card">
         <h2>News</h2>
         <ul class="news-list">
           <li><span class="news-date">Nov 2025:</span> Our student Carson Lam and I presented our papers at the 44th IEEE International Performance Computing and Communications Conference (IPCCC 2025).</li>
-          <!-- This is a comment <li><span class="news-date">Aug 2025:</span> One paper and one poster were accepted by the 44th IEEE International Performance Computing and Communications Conference (IPCCC 2025).</li> -->
           <li><span class="news-date">Apr 2025:</span> One paper was accepted by the 11th International Conference on Big Data Computing and Communications (BigCom 2025).</li>
           <li><span class="news-date">Apr 2025:</span> Invited to serve as Poster Chair for IPCCC 2025.</li>
           <li><span class="news-date">Mar 2025:</span> Invited to serve as General Chair for the 21st EAI International Conference on Heterogeneous Networking for Quality, Reliability, Security and Robustness.</li>
           <li><span class="news-date">Feb 2025:</span> Invited to serve as TPC member for IEEE MASS 2025.</li>
-          <!-- This is a comment<li><span class="news-date">Nov 2024:</span> Invited to serve as TPC member for IEEE SoutheastCon 2025.</li>
-          <li><span class="news-date">May 2024:</span> Invited to serve as TPC member for IPCCC 2024.</li>
-          <li><span class="news-date">Apr 2024:</span> Advised students presenting "A General Approach to Website Question Answering with Large Language Models" at IEEE SoutheastCon 2024.</li>
-         <li><span class="news-date">Feb 2024:</span> Paper "Participation Selection in Mobile Crowd Sensing with Diversity Ensures" accepted and presented at ICNC 2024.</li>
-          <li><span class="news-date">Nov 2023:</span> Advised student Helen Jin presenting "Redesigning Mobile Crowd Sensing's Selection Logic to Ensure Participant Diversity" at IPCCC 2023.</li>
-          <li><span class="news-date">Feb 2022:</span> Paper "Fair Incentive Mechanism with Imperfect Quality in Privacy Preserving Crowdsensing" accepted by IEEE Internet of Things Journal.</li> -->
         </ul>
       </section>
 
-       <section id="research" class="card">
+      <!-- ── Research ───────────────────────────────────── -->
+      <section id="research" class="card">
         <h2>Research</h2>
         <p>My work sits at the intersection of sensing systems, algorithms, and trustworthy computing for large-scale mobile and edge environments.</p>
         <div class="tags" aria-label="Research interests">
@@ -521,338 +443,129 @@
           <span class="tag">Bike Sharing Systems</span>
         </div>
       </section>
-      
-<section id="publications" class="card">
-       <h2>Publications</h2>
 
-          <h3>Journal Articles (Selected)</h3>
-          <table>
-            <tr>
-              <td class="cvdate">2022</td>
-              <td class="cvitem">Youqi Li, Fan Li, Liehuang Zhu, Huijie Chen, <b>Ting Li</b>, and Yu Wang, "Fair Incentive Mechanism with Imperfect Quality in Privacy Preserving Crowdsensing," <em>IEEE Internet of Things Journal</em>.</td>
-            </tr>
-            <tr>
-              <td class="cvdate">2021</td>
-              <td class="cvitem"> <b>Ting Li</b>, Zhijin Qiu, Lijuan Cao, Dazhao Cheng, Weichao Wang, Xinghua Shi, and Yu Wang, "Privacy-Preserving Participant Grouping for Mobile Social Sensing over Edge Clouds," <em>IEEE Transactions on Network Science and Engineering</em>.</td>
-            </tr>
-            <tr>
-              <td class="cvdate">2020</td>
-              <td class="cvitem"> <b>Ting Li</b>, Taeho Jung, Zhijin Qiu, Hanshang Li, Lijuan Cao, and Yu Wang, "Scalable Privacy-Preserving Participant Selection for Mobile Crowdsensing Systems," <em>IEEE Transactions on Network Science and Engineering</em>.</td>
-            </tr>
-            <tr>
-              <td class="cvdate">2019</td>
-              <td class="cvitem">Hanshang Li,  <b>Ting Li</b>, Weichao Wang, and Yu Wang, "Dynamic Participant Selection for Large-Scale Mobile Crowd Sensing," <em>IEEE Transactions on Mobile Computing</em>.</td>
-            </tr>
-          </table>
+      <!-- ── Publications ───────────────────────────────── -->
+      <section id="publications" class="card">
+        <h2>Publications</h2>
 
-          <h3>Conference Papers (Selected)</h3>
-          <table>
-            <tr>
-              <td class="cvdate">2025</td>
-              <td class="cvitem">Victor Li<span style="color: blue;">*</span>, Carson Lam<span style="color: blue;">*</span>,  <b>Ting Li</b>, "Gumbel-Based Active Sparse Mobile Crowd Sensing with Time Series Transformer," <em>IPCCC 2025</em>.</td>
-            </tr>
-            <tr>
-              <td class="cvdate">2025</td>
-              <td class="cvitem"> <b>Ting Li</b>, Dan Han, A B M Mohaimenur Rahman, "Matching or Not: Stochastic Perfect Matching of Task Assignment in Mobile Crowd Sensing," <em>BigCom 2025</em>.</td>
-            </tr>
-            <tr>
-              <td class="cvdate">2024</td>
-              <td class="cvitem">Helen Jin<span style="color: blue;">*</span>,  <b>Ting Li</b>, "Participation Selection in Mobile Crowd Sensing with Diversity Ensures," <em>ICNC 2024</em>.</td>
-            </tr>
-            <tr>
-              <td class="cvdate">2018</td>
-              <td class="cvitem"> <b>Ting Li</b>, Zhijin Qiu, Lijuan Cao, Zhongwen Guo, Fan Li, and Yu Wang, "Privacy-Preserving Participant Grouping in Mobile Crowdsensing over Hierarchical Edge Clouds," <em>IPCCC 2018</em>.</td>
-            </tr>
-            <tr>
-              <td class="cvdate">2017</td>
-              <td class="cvitem"> <b>Ting Li</b>, Taeho Jung, Hanshang Li, Lijuan Cao, Weichao Wang, Xiang-Yang Li, and Yu Wang, "Scalable Privacy-Preserving Participant Selection in Mobile Crowd Sensing," <em>PerCom 2017</em>.</td>
-            </tr>
-          </table>
-           <p>The authors ending with <span style="color: blue;">*</span> are undergraduate students at Oxford College of Emory University who did research under the supervision of Dr. Li. </p> 
-          <p><a href="TING_CV_2026_Feb_Teaching.pdf" target="_blank" rel="noreferrer">Complete publication list in PDF CV</a>.</p>
-          <hr class="major">
+        <h3>Journal Articles (Selected)</h3>
+        <table>
+          <tr>
+            <td class="cvdate">2022</td>
+            <td class="cvitem">Youqi Li, Fan Li, Liehuang Zhu, Huijie Chen, <b>Ting Li</b>, and Yu Wang, "Fair Incentive Mechanism with Imperfect Quality in Privacy Preserving Crowdsensing," <em>IEEE Internet of Things Journal</em>.</td>
+          </tr>
+          <tr>
+            <td class="cvdate">2021</td>
+            <td class="cvitem"><b>Ting Li</b>, Zhijin Qiu, Lijuan Cao, Dazhao Cheng, Weichao Wang, Xinghua Shi, and Yu Wang, "Privacy-Preserving Participant Grouping for Mobile Social Sensing over Edge Clouds," <em>IEEE Transactions on Network Science and Engineering</em>.</td>
+          </tr>
+          <tr>
+            <td class="cvdate">2020</td>
+            <td class="cvitem"><b>Ting Li</b>, Taeho Jung, Zhijin Qiu, Hanshang Li, Lijuan Cao, and Yu Wang, "Scalable Privacy-Preserving Participant Selection for Mobile Crowdsensing Systems," <em>IEEE Transactions on Network Science and Engineering</em>.</td>
+          </tr>
+          <tr>
+            <td class="cvdate">2019</td>
+            <td class="cvitem">Hanshang Li, <b>Ting Li</b>, Weichao Wang, and Yu Wang, "Dynamic Participant Selection for Large-Scale Mobile Crowd Sensing," <em>IEEE Transactions on Mobile Computing</em>.</td>
+          </tr>
+        </table>
+
+        <h3>Conference Papers (Selected)</h3>
+        <table>
+          <tr>
+            <td class="cvdate">2025</td>
+            <td class="cvitem">Victor Li<span style="color:var(--accent)">*</span>, Carson Lam<span style="color:var(--accent)">*</span>, <b>Ting Li</b>, "Gumbel-Based Active Sparse Mobile Crowd Sensing with Time Series Transformer," <em>IPCCC 2025</em>.</td>
+          </tr>
+          <tr>
+            <td class="cvdate">2025</td>
+            <td class="cvitem"><b>Ting Li</b>, Dan Han, A B M Mohaimenur Rahman, "Matching or Not: Stochastic Perfect Matching of Task Assignment in Mobile Crowd Sensing," <em>BigCom 2025</em>.</td>
+          </tr>
+          <tr>
+            <td class="cvdate">2024</td>
+            <td class="cvitem">Helen Jin<span style="color:var(--accent)">*</span>, <b>Ting Li</b>, "Participation Selection in Mobile Crowd Sensing with Diversity Ensures," <em>ICNC 2024</em>.</td>
+          </tr>
+          <tr>
+            <td class="cvdate">2018</td>
+            <td class="cvitem"><b>Ting Li</b>, Zhijin Qiu, Lijuan Cao, Zhongwen Guo, Fan Li, and Yu Wang, "Privacy-Preserving Participant Grouping in Mobile Crowdsensing over Hierarchical Edge Clouds," <em>IPCCC 2018</em>.</td>
+          </tr>
+          <tr>
+            <td class="cvdate">2017</td>
+            <td class="cvitem"><b>Ting Li</b>, Taeho Jung, Hanshang Li, Lijuan Cao, Weichao Wang, Xiang-Yang Li, and Yu Wang, "Scalable Privacy-Preserving Participant Selection in Mobile Crowd Sensing," <em>PerCom 2017</em>.</td>
+          </tr>
+        </table>
+        <p style="margin-top:0.7rem">Authors marked <span style="color:var(--accent);font-weight:700">*</span> are undergraduate students at Oxford College of Emory University supervised by Dr. Li.</p>
+        <p><a href="TING_CV_2026_Feb_Teaching.pdf" target="_blank" rel="noreferrer">Complete publication list in PDF CV</a>.</p>
       </section>
 
+      <!-- ── Teaching ───────────────────────────────────── -->
+      <section id="teaching" class="card">
+        <h2>Teaching</h2>
+        <p>Teaching load: 3–3. All courses taught at Oxford College of Emory University since Fall 2019.</p>
 
-      
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Courses Taught — Ting Li</title>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: #f7f6f2;
-      color: #1a1a2e;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 3rem 1.5rem;
-      gap: 3rem;
-    }
-
-    .courses-section {
-      width: 100%;
-      max-width: 900px;
-    }
-
-    /* ── Section Title ───────────────────────────────────── */
-    .section-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.05rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: #4a7baf;
-      margin-bottom: 1.6rem;
-      display: flex;
-      align-items: center;
-      gap: 0.85rem;
-    }
-    .section-title::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: linear-gradient(to right, #4a7baf55, transparent);
-    }
-
-    /* ── Course Cards (top summary) ─────────────────────── */
-    .course-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 0.85rem;
-      margin-bottom: 2.2rem;
-    }
-
-    .course-card {
-      background: white;
-      border-radius: 10px;
-      padding: 1rem 1.2rem;
-      border-left: 3px solid #4a7baf;
-      box-shadow: 0 1px 4px rgba(27,58,107,0.07);
-      transition: box-shadow 0.2s, transform 0.2s;
-    }
-    .course-card:hover {
-      box-shadow: 0 4px 14px rgba(27,58,107,0.13);
-      transform: translateY(-2px);
-    }
-
-    .course-code {
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      color: #4a7baf;
-      text-transform: uppercase;
-      margin-bottom: 0.25rem;
-    }
-    .course-name {
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: #1b3a6b;
-      margin-bottom: 0.4rem;
-      line-height: 1.35;
-    }
-    .course-semesters {
-      font-size: 0.78rem;
-      color: #666;
-      line-height: 1.5;
-    }
-
-    /* ── Semester Grid Table ─────────────────────────────── */
-    .table-label {
-      font-size: 0.78rem;
-      color: #888;
-      font-style: italic;
-      margin-bottom: 0.7rem;
-    }
-
-    .scroll-wrapper {
-      overflow-x: auto;
-      border-radius: 10px;
-      box-shadow: 0 1px 4px rgba(27,58,107,0.08);
-    }
-
-    table.semester-grid {
-      width: 100%;
-      border-collapse: collapse;
-      background: white;
-      font-size: 0.82rem;
-      min-width: 620px;
-    }
-
-    /* Header row */
-    .semester-grid thead tr {
-      background: #1b3a6b;
-      color: white;
-    }
-    .semester-grid thead th {
-      padding: 0.65rem 0.6rem;
-      text-align: center;
-      font-weight: 600;
-      font-size: 0.72rem;
-      letter-spacing: 0.05em;
-      white-space: nowrap;
-    }
-    .semester-grid thead th:first-child {
-      text-align: left;
-      padding-left: 1rem;
-      min-width: 110px;
-    }
-
-    /* Sub-header (course codes) */
-    .semester-grid thead tr.subhead th {
-      background: #4a7baf;
-      font-size: 0.68rem;
-      padding: 0.4rem 0.6rem;
-      color: #d6e4f0;
-    }
-
-    /* Body rows */
-    .semester-grid tbody tr {
-      border-bottom: 1px solid #eef2f7;
-      transition: background 0.15s;
-    }
-    .semester-grid tbody tr:hover { background: #eef3f9; }
-    .semester-grid tbody tr:nth-child(even) { background: #f7fafd; }
-    .semester-grid tbody tr:nth-child(even):hover { background: #eef3f9; }
-
-    /* Summer rows — lighter tint */
-    .semester-grid tbody tr.summer-row td:first-child {
-      color: #4a7baf;
-      font-style: italic;
-    }
-
-    .semester-grid tbody td {
-      padding: 0.5rem 0.6rem;
-      text-align: center;
-      color: #444;
-    }
-    .semester-grid tbody td:first-child {
-      text-align: left;
-      padding-left: 1rem;
-      font-weight: 500;
-      color: #1b3a6b;
-      white-space: nowrap;
-    }
-
-    /* Credit total column */
-    .semester-grid td.credit-total,
-    .semester-grid th.credit-total {
-      font-weight: 700;
-      color: #1b3a6b !important;
-      background: #eef3f9;
-      border-left: 2px solid #c8d8ea;
-    }
-    .semester-grid thead th.credit-total {
-      color: #a8cadf !important;
-    }
-
-    /* Cell value — filled circle for sections */
-    .cell-val {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 22px;
-      height: 22px;
-      background: #1b3a6b;
-      color: white;
-      border-radius: 50%;
-      font-size: 0.72rem;
-      font-weight: 700;
-    }
-    .cell-val.blue { background: #4a7baf; }
-    .cell-val.light { background: #c8d8ea; color: #1b3a6b; }
-
-    /* Empty cell dash */
-    .cell-empty { color: #ccc; font-size: 0.75rem; }
-
-    /* Footer note */
-    .table-note {
-      font-size: 0.75rem;
-      color: #888;
-      margin-top: 0.7rem;
-      line-height: 1.6;
-      font-style: italic;
-    }
-  </style>
-</head>
-<body>
-
-<!-- ══ COURSES TAUGHT SECTION — paste into your site ══ -->
-<section class="courses-section">
-
-  <h2 class="section-title">Courses Taught at Oxford College</h2>
-
-  <!-- Course summary cards -->
-  <div class="course-cards">
-    <div class="course-card">
-      <div class="course-code">CS 170Q</div>
-      <div class="course-name">Introduction to Computer Science I</div>
-      <div class="course-semesters">2 sections/sem &middot; F'19 – S'23, F'25</div>
-    </div>
-    <div class="course-card">
-      <div class="course-code">CS 171</div>
-      <div class="course-name">Introduction to Computer Science II</div>
-      <div class="course-semesters">F'19, S'20, SU'21, F'21, F'23, S'25, F'25, S'26</div>
-    </div>
-    <div class="course-card">
-      <div class="course-code">CS 253</div>
-      <div class="course-name">Data Structures and Algorithms</div>
-      <div class="course-semesters">S'21, S'22, S'23, SU'23, S'25</div>
-    </div>
-    <div class="course-card">
-      <div class="course-code">DSC 101Q</div>
-      <div class="course-name">Beauty of Algorithms</div>
-      <div class="course-semesters">F'20, F'23, F'25</div>
-    </div>
-    <div class="course-card">
-      <div class="course-code">CS 297RE</div>
-      <div class="course-name">Directed Study</div>
-      <div class="course-semesters">F'20, S'21, S'22, S'23, F'23, S'25, F'25, S'26</div>
-    </div>
-  </div>
+        <!-- Course summary cards -->
+        <div class="course-cards">
+          <div class="course-card">
+            <div class="course-code">CS 170Q</div>
+            <div class="course-name">Introduction to Computer Science I</div>
+            <div class="course-semesters">2 sections/sem &middot; F'19&ndash;S'23, F'25</div>
+          </div>
+          <div class="course-card">
+            <div class="course-code">CS 171</div>
+            <div class="course-name">Introduction to Computer Science II</div>
+            <div class="course-semesters">F'19, S'20, SU'21, F'21, F'23, S'25, F'25, S'26</div>
+          </div>
+          <div class="course-card">
+            <div class="course-code">CS 253</div>
+            <div class="course-name">Data Structures &amp; Algorithms</div>
+            <div class="course-semesters">S'21, S'22, S'23, SU'23, S'25</div>
+          </div>
+          <div class="course-card">
+            <div class="course-code">DSC 101Q</div>
+            <div class="course-name">Beauty of Algorithms</div>
+            <div class="course-semesters">F'20, F'23, F'25</div>
+          </div>
+          <div class="course-card">
+            <div class="course-code">CS 297RE</div>
+            <div class="course-name">Directed Study</div>
+            <div class="course-semesters">F'20, S'21, S'22, S'23, F'23, S'25, F'25, S'26</div>
+          </div>
+        </div>
       </section>
 
-      
-
+      <!-- ── Services ───────────────────────────────────── -->
       <section id="services" class="card">
-       
-          <h2>Professional Service</h2>
-          <table class="noborder">
-            <tr>
-              <td class="cvdate">Leadership</td>
-              <td class="cvitem">General Chair, 21st EAI International Conference on Heterogeneous Networking for Quality, Reliability, Security and Robustness (2025); Poster Chair, IPCCC 2025.</td>
-            </tr>
-            <tr>
-              <td class="cvdate">TPC / PC</td>
-              <td class="cvitem">IEEE MASS; IEEE SoutheastCon; IEEE IPCCC; IEEE ICCCN; BigCom; The Tech for Women Track at Grace Hopper Conference.</td>
-            </tr>
-            <tr>
-              <td class="cvdate">Journal Reviewing</td>
-              <td class="cvitem">ACM Transactions on Sensor Networks; Sensors; IEEE Transactions on Mobile Computing; IEEE Transactions on Communications; IEEE Internet of Things Journal; IEEE Transactions on Vehicular Technology; IEEE Transactions on Network Science and Engineering; and related venues.</td>
-            </tr>
-            <tr>
-              <td class="cvdate">Other</td>
-              <td class="cvitem">Session Chair, IPCCC 2021; Judge, Undergraduate Research (CUR) Award at SIGCSE 2022; Guest Editor for MDPI special issues.</td>
-            </tr>
-          </table>
+        <h2>Professional Service</h2>
+        <table class="noborder">
+          <tr>
+            <td class="cvdate">Leadership</td>
+            <td class="cvitem">General Chair, 21st EAI International Conference on Heterogeneous Networking for Quality, Reliability, Security and Robustness (2025); Poster Chair, IPCCC 2025.</td>
+          </tr>
+          <tr>
+            <td class="cvdate">TPC / PC</td>
+            <td class="cvitem">IEEE MASS; IEEE SoutheastCon; IEEE IPCCC; IEEE ICCCN; BigCom; The Tech for Women Track at Grace Hopper Conference.</td>
+          </tr>
+          <tr>
+            <td class="cvdate">Reviewing</td>
+            <td class="cvitem">ACM Transactions on Sensor Networks; Sensors; IEEE Transactions on Mobile Computing; IEEE Transactions on Communications; IEEE Internet of Things Journal; IEEE Transactions on Vehicular Technology; IEEE Transactions on Network Science and Engineering; and related venues.</td>
+          </tr>
+          <tr>
+            <td class="cvdate">Other</td>
+            <td class="cvitem">Session Chair, IPCCC 2021; Judge, CUR Award at SIGCSE 2022; Guest Editor for MDPI special issues.</td>
+          </tr>
+        </table>
       </section>
 
+      <!-- ── CV ─────────────────────────────────────────── -->
       <section id="cv" class="card">
         <h2>Curriculum Vitae</h2>
         <p><a href="cv.html">View CV page</a> | <a href="TING_CV_2026_Feb_Teaching.pdf" target="_blank" rel="noreferrer">Download CV (PDF)</a></p>
       </section>
 
+      <!-- ── Contact ────────────────────────────────────── -->
       <section id="contact" class="card">
         <h2>Contact</h2>
         <div class="contact-grid">
           <p class="contact-item"><strong>Email</strong><span><a href="mailto:ting.li@emory.edu">ting.li@emory.edu</a></span></p>
           <p class="contact-item"><strong>GitHub</strong><span><a href="https://github.com/tli41" target="_blank" rel="noreferrer">github.com/tli41</a></span></p>
-          <p class="contact-item"><strong>Scholar</strong><span><a href="https://scholar.google.com/citations?user=Ak6rAqEAAAAJ&amp;hl=en" target="_blank" rel="noreferrer">Google Scholar Profile</a></span></p>
+          <p class="contact-item"><strong>Scholar</strong><span><a href="https://scholar.google.com/citations?user=Ak6rAqEAAAAJ&hl=en" target="_blank" rel="noreferrer">Google Scholar Profile</a></span></p>
           <p class="contact-item"><strong>LinkedIn</strong><span><a href="https://www.linkedin.com/in/tingliuncc/" target="_blank" rel="noreferrer">linkedin.com/in/tingliuncc</a></span></p>
         </div>
       </section>
